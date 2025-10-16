@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e18046b-4200-42a2-addc-e59f90b93022" name="Changes" comment="+files">
+    <list default="true" id="6e18046b-4200-42a2-addc-e59f90b93022" name="Changes" comment="+loginFunc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -38,6 +39,9 @@
     &quot;accountId&quot;: &quot;635143b2-a0f0-49fe-8043-04cdd9ca8792&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -77,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1760579791914</updated>
       <workItem from="1760579792983" duration="796000" />
-      <workItem from="1760580596838" duration="2271000" />
+      <workItem from="1760580596838" duration="11569000" />
     </task>
     <task id="LOCAL-00001" summary="+files">
       <option name="closed" value="true" />
@@ -87,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760581019908</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="+loginFunc">
+      <option name="closed" value="true" />
+      <created>1760582890493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760582890493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="+files" />
-    <option name="LAST_COMMIT_MESSAGE" value="+files" />
+    <MESSAGE value="+loginFunc" />
+    <option name="LAST_COMMIT_MESSAGE" value="+loginFunc" />
   </component>
 </project>

@@ -8,11 +8,19 @@
 </head>
 <body>
 <section id="parent">
-    <form action="#">
+    <div class="stats dn">
+        <span class="username">Олег</span>
+        <span class="stopwatch">0:00</span>
+        <span>12</span>
+        <span>Жизней осталось:</span>
+    </div>
+    <form action="#" class="form">
         <h1>Введите имя игрока</h1>
-        <input type="text" placeholder="username" id="inputUsername">
-        <button onclick="setUsername()">Играть</button>
+        <input autocomplete="off" type="text" placeholder="Имя" id="inputUsername">
+        <button class="submitButton">Играть</button>
     </form>
+
+    <img src="assets/media/player.png" alt="123" class="dn" id="player">
 </section>
 </body>
 </html>
