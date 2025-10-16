@@ -101,7 +101,32 @@ function startGame() {
 
     fruitSpawn()
     function fruitSpawn() {
+        const fruit = fruits[Math.floor(Math.random() * fruits.length)]
+        const img = document.createElement('img')
+        img.src = fruit.src
+        img.alt = fruit.name
+        img.style.position = 'absolute'
+        img.style.width = '150px'
+        img.style.top =  '42px'
 
+        const x = Math.floor(Math.random() * 1700)
+        img.style.left = x + 'px'
+
+        document.body.appendChild(img)
+
+        const fallSpeed = 3
+        let y = 42
+        function fallStep() {
+            y += fallSpeed
+            img.style.top = y + 'px'
+            if (y < 950) {
+                setTimeout(fallStep, 16)
+            } else {
+                img.remove()
+            }
+        }
+
+        setTimeout(fallStep, 16)
         setTimeout(fruitSpawn, spawnDelay())
     }
 
