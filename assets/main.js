@@ -1,9 +1,9 @@
 let username = ''
-const parent = document.getElementById('parent')
 const forma = document.querySelector(".form")
 const stats = document.querySelector(".stats")
 const player = document.getElementById("player")
 const usernameInput = document.getElementById("inputUsername")
+
 
 usernameInput.addEventListener("input", () => {
     if (usernameInput.value.length < 2) {
@@ -72,8 +72,38 @@ function startGame() {
 		}
 	})
 
+    // FRUITS SPAWN
+
+    // random delay of spawning fruits
+
+    function spawnDelay() {
+        let min = 1000
+        let max = 5000
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const fruits = [
+        {
+            name: 'banana',
+            src: 'assets/media/banana.png'
+        },
+        {
+            name: 'apple',
+            src: 'assets/media/apple.png'
+        },
+        {
+            name: 'orange',
+            src: 'assets/media/orange.png'
+        },
+    ]
+
+    // spawn fruits function
+
+    fruitSpawn()
+    function fruitSpawn() {
+
+        setTimeout(fruitSpawn, spawnDelay())
+    }
 
 
 }
-
-
