@@ -5,12 +5,12 @@ const stats = document.querySelector(".stats")
 const player = document.getElementById("player")
 const usernameInput = document.getElementById("inputUsername")
 
-usernameInput.addEventListener("input", e => {
+usernameInput.addEventListener("input", () => {
     if (usernameInput.value.length < 2) {
-        document.querySelector('.submitButton').style.background = '#ffee60'
+        document.querySelector('.submitButton').style.background = 'gray'
     }
     else {
-        document.querySelector('.submitButton').style.background = '#ff8000'
+        document.querySelector('.submitButton').style.background = '#ffee60'
         document.querySelector('.submitButton').addEventListener('click',  setUsername)
     }
 })
@@ -60,19 +60,17 @@ function startGame() {
 
     let positionPlayer = 0
 
-    document.addEventListener('keydown', (key) => {
-        if (key.code === 'KeyA') {
-            positionPlayer -= 20
-            player.style.transform = `translateX(${positionPlayer}px)`
-            console.log("PRESSED")
-        }
+	document.addEventListener('keydown', (key) => {
+		if (key.code === 'KeyA' && positionPlayer > -700) {
+			positionPlayer -= 20
+			player.style.transform = `translateX(${positionPlayer}px)`
+		}
 
-        if (key.code === 'KeyD') {
-            positionPlayer += 20
-            player.style.transform = `translateX(${positionPlayer}px)`
-            console.log("PRESSED")
-        }
-    })
+		if (key.code === 'KeyD' && positionPlayer < 700) {
+			positionPlayer += 20
+			player.style.transform = `translateX(${positionPlayer}px)`
+		}
+	})
 
 
 
