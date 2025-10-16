@@ -15,10 +15,11 @@ usernameInput.addEventListener("input", e => {
     }
 })
 
+// USERNAME FUNC
 
 function setUsername() {
     username = document.getElementById("inputUsername").value
-    if (username === '') return
+    if (username.length < 2) return
     startGame()
 }
 
@@ -44,7 +45,12 @@ function startGame() {
                 seconds = 0
             }
 
-            document.querySelector('.stopwatch').innerText = `${minutes}:${seconds}`
+            if (seconds < 10) {
+                document.querySelector('.stopwatch').innerText = `${minutes}:0${seconds}`
+            } else {
+                document.querySelector('.stopwatch').innerText = `${minutes}:${seconds}`
+            }
+
             seconds += 1
             stopwatch()
         }, 1000)
