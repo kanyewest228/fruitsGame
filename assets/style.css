@@ -26,6 +26,7 @@ body {
     padding: 10px 0;
     border-radius: 0 0 50px 50px;
     align-items: center;
+    height: 42px;
 }
 
 .stats span {

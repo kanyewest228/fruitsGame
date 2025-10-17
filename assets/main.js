@@ -33,6 +33,7 @@ function startGame() {
     stats.classList.toggle('dn')
     player.classList.toggle('dn')
 
+    // ----------------------------------------------------
     // STOPWATCH
 
     let seconds = 0
@@ -55,7 +56,7 @@ function startGame() {
             stopwatch()
         }, 1000)
     }
-
+    // --------------------------------------------------------
     // PLAYER MOVEMENT
 
     let positionPlayer = 0
@@ -71,9 +72,7 @@ function startGame() {
 			player.style.transform = `translateX(${positionPlayer}px)`
 		}
 	})
-
-    // FRUITS SPAWN
-
+    //  ------------------------------------------------
     // random delay of spawning fruits
 
     function spawnDelay() {
@@ -81,6 +80,8 @@ function startGame() {
         let max = 5000
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+
+    // fruits array
 
     const fruits = [
         {
@@ -97,8 +98,7 @@ function startGame() {
         },
     ]
 
-    // spawn fruits function
-
+    // FRUITS SPAWN
     fruitSpawn()
     function fruitSpawn() {
         const fruit = fruits[Math.floor(Math.random() * fruits.length)]
@@ -114,15 +114,37 @@ function startGame() {
 
         document.body.appendChild(img)
 
-        const fallSpeed = 3
+        // define speed function
+
+        let fallSpeed = 0
+        function defineSpeed () {
+            switch (img.alt) {
+                case 'banana':
+                    fallSpeed = 2
+                    break;
+                case 'apple':
+                    fallSpeed = 3
+                    break;
+                case 'orange':
+                    fallSpeed = 4
+                    break;
+            }
+            return fallSpeed
+        }
+
+
+        // falling function
+
         let y = 42
         function fallStep() {
-            y += fallSpeed
+            y += defineSpeed()
             img.style.top = y + 'px'
             if (y < 950) {
                 setTimeout(fallStep, 16)
+                fruitCollect()
             } else {
                 img.remove()
+                hearts()
             }
         }
 
@@ -130,5 +152,22 @@ function startGame() {
         setTimeout(fruitSpawn, spawnDelay())
     }
 
+    // -------------------------------------------------------------------
+    // HP FUNCTION
+
+    function hearts () {
+        let heartsCount = document.querySelector('.healthStats')
+        if (heartsCount.childElementCount > 1) {
+            let lastHeart = heartsCount.lastElementChild
+            heartsCount.removeChild(lastHeart)
+        }
+    }
+
+    // ---------------------------------------------------------------
+    // FUNCTION COLLECT
+
+    function fruitCollect() {
+
+    }
 
 }
