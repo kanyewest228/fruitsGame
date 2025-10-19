@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e18046b-4200-42a2-addc-e59f90b93022" name="Changes" comment="+fallingFunction">
+    <list default="true" id="6e18046b-4200-42a2-addc-e59f90b93022" name="Changes" comment="w/o attraction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style.css" afterDir="false" />
@@ -90,7 +90,7 @@
       <workItem from="1760699418864" duration="2663000" />
       <workItem from="1760720768897" duration="1997000" />
       <workItem from="1760765298871" duration="5631000" />
-      <workItem from="1760872853533" duration="2234000" />
+      <workItem from="1760872853533" duration="3249000" />
     </task>
     <task id="LOCAL-00001" summary="+files">
       <option name="closed" value="true" />
@@ -140,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760635201288</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="w/o attraction">
+      <option name="closed" value="true" />
+      <created>1760875924137</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760875924137</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +161,7 @@
     <MESSAGE value="+hp +moveLimit" />
     <MESSAGE value="+spawnDelay +fruits" />
     <MESSAGE value="+fallingFunction" />
-    <option name="LAST_COMMIT_MESSAGE" value="+fallingFunction" />
+    <MESSAGE value="w/o attraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="w/o attraction" />
   </component>
 </project>

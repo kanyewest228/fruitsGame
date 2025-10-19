@@ -5,6 +5,7 @@ const player = document.getElementById("player")
 const usernameInput = document.getElementById("inputUsername")
 let score = 0
 let gameActive = true
+let time
 
 usernameInput.addEventListener("input", () => {
     if (usernameInput.value.length < 2) {
@@ -28,6 +29,7 @@ function setUsername() {
 
 function startGame() {
     forma.style.display = 'none'
+    document.querySelector('.blur').classList.toggle('blur')
     let usernameDisplay = document.querySelector(".username")
     usernameDisplay.className = 'usernameDisplay'
     usernameDisplay.innerText = username
@@ -56,6 +58,7 @@ function startGame() {
 
             seconds += 1
             stopwatch()
+            time = document.querySelector('.stopwatch').innerText
         }, 1000)
     }
     // --------------------------------------------------------
@@ -184,8 +187,12 @@ function startGame() {
 
     function gameOver() {
         gameActive = false
+        document.getElementById('parent').classList.toggle('blur')
+
         const gameOverDiv = document.querySelector('.gameOver')
         gameOverDiv.classList.toggle('dn')
+        gameOverDiv.innerHTML = `ВЫ ПРОИГРАЛИ <br>Имя: ${username} <br>Время: ${time} <br>Поймано фруктов: ${score}`
+        document.querySelector(".stats").classList.toggle('dn')
 
         const allFruits = document.querySelectorAll('img[alt="banana"], img[alt="apple"], img[alt="orange"]')
         allFruits.forEach(fruit => fruit.remove())
