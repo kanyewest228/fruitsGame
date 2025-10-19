@@ -3,7 +3,8 @@ const forma = document.querySelector(".form")
 const stats = document.querySelector(".stats")
 const player = document.getElementById("player")
 const usernameInput = document.getElementById("inputUsername")
-
+let score = 0
+let gameActive = true
 
 usernameInput.addEventListener("input", () => {
     if (usernameInput.value.length < 2) {
@@ -40,6 +41,7 @@ function startGame() {
     let minutes = 0
     stopwatch()
     function stopwatch () {
+        if (!gameActive) return
         setTimeout(() => {
             if (seconds === 60) {
                 minutes++
@@ -61,7 +63,7 @@ function startGame() {
 
     let positionPlayer = 0
 
-	document.addEventListener('keydown', (key) => {
+	document.addEventListener('keypress', (key) => {
 		if (key.code === 'KeyA' && positionPlayer > -700) {
 			positionPlayer -= 20
 			player.style.transform = `translateX(${positionPlayer}px)`
@@ -101,6 +103,8 @@ function startGame() {
     // FRUITS SPAWN
     fruitSpawn()
     function fruitSpawn() {
+        if (!gameActive) return
+        
         const fruit = fruits[Math.floor(Math.random() * fruits.length)]
         const img = document.createElement('img')
         img.src = fruit.src
@@ -137,19 +141,27 @@ function startGame() {
 
         let y = 42
         function fallStep() {
+            if (img.classList.contains('collected')) return
+            
+            if (!gameActive) return
+            
             y += defineSpeed()
             img.style.top = y + 'px'
             if (y < 950) {
                 setTimeout(fallStep, 16)
                 fruitCollect()
             } else {
-                img.remove()
-                hearts()
+                if (!img.classList.contains('collected')) {
+                    img.remove()
+                    hearts()
+                }
             }
         }
 
         setTimeout(fallStep, 16)
-        setTimeout(fruitSpawn, spawnDelay())
+        if (gameActive) {
+            setTimeout(fruitSpawn, spawnDelay())
+        }
     }
 
     // -------------------------------------------------------------------
@@ -157,10 +169,27 @@ function startGame() {
 
     function hearts () {
         let heartsCount = document.querySelector('.healthStats')
-        if (heartsCount.childElementCount > 1) {
+        let heartImages = heartsCount.querySelectorAll('img[alt="health"]')
+        
+        if (heartImages.length > 1) {
             let lastHeart = heartsCount.lastElementChild
             heartsCount.removeChild(lastHeart)
+        } else {
+            gameOver()
         }
+    }
+
+    // -------------------------------------------------------------------
+    // GAME OVER FUNCTION
+
+    function gameOver() {
+        gameActive = false
+        const gameOverDiv = document.querySelector('.gameOver')
+        gameOverDiv.classList.toggle('dn')
+
+        const allFruits = document.querySelectorAll('img[alt="banana"], img[alt="apple"], img[alt="orange"]')
+        allFruits.forEach(fruit => fruit.remove())
+        player.style.display = 'none'
     }
 
     // ---------------------------------------------------------------
@@ -168,6 +197,23 @@ function startGame() {
 
     function fruitCollect() {
 
+        const playerRect = player.getBoundingClientRect()
+
+        const fruits = document.querySelectorAll('img[alt="banana"], img[alt="apple"], img[alt="orange"]')
+        
+        fruits.forEach(fruit => {
+            const fruitRect = fruit.getBoundingClientRect()
+
+            if (fruitRect.left < playerRect.right &&
+                fruitRect.right > playerRect.left &&
+                fruitRect.top < playerRect.bottom &&
+                fruitRect.bottom > playerRect.top) {
+                fruit.classList.add('collected')
+                fruit.remove()
+                score++
+                document.querySelector('.score').innerText = `Фруктов собрано: ${score}`
+            }
+        })
     }
 
 }
